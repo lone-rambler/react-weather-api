@@ -22,34 +22,35 @@ export const GlobalStyle = createGlobalStyle`
     html,body{
         background-color: ${colors.mint_cream};
     }
-
 	
-ul {
+	ul {
+		list-style-type: none;
+		font-size: 1.5rem;
 
-list-style-type: none;
+		@media screen and (max-width: 555px) {
+			font-size: 1.25rem;
+		}
+	}
 
-}
+	ul li:before {
+		content: '';
+		height: 1rem;
+		width: 1rem;
 
+		background-size: 1rem;
+		background-image: url("https://www.svgrepo.com/show/20139/checkmark-hand-drawn-outline.svg");
+		background-repeat: no-repeat;
 
-ul li:before {
+		display: inline-block;
 
-content: '';
+		margin-right: 1rem;
+	}
 
-display: inline-block;
+	::selection{
+		background-color: ${colors.caput_mortuum};
 
-height: 10px;
-
-width: 10px;
-
- background-size: 10px;
-
-background-image: url("https://www.svgrepo.com/show/20139/checkmark-hand-drawn-outline.svg");
-
-background-repeat: no-repeat;
-
-margin-right: 5px;
-
-}
+		color: ${colors.mint_cream}
+	}
 `
 
 export const FitBox = styled.div`
@@ -90,6 +91,8 @@ export const LineSeparator = styled.div`
 
 	border-top: 0.25rem solid ${colors.caput_mortuum};
 	border-radius: 25%;
+
+	margin-bottom: 1rem;
 `
 
 export const WeatherInfoList = styled.div`
@@ -113,7 +116,7 @@ export const StyledForm = styled.form`
 	justify-content: center;
 	flex-direction: row;
 
-	margin: 1rem;
+	margin-bottom: 1rem;
 `
 
 export const StyledInput = styled.input`
@@ -126,7 +129,7 @@ export const StyledInput = styled.input`
 	outline: none;
 
 	color: ${colors.dark_sienna};
-	font-size: 1rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-align: center;
 
@@ -162,7 +165,7 @@ export const StyledButton = styled.button`
 	outline: none;
 
 	color: ${colors.dark_sienna};
-	font-size: 1rem;
+	font-size: 1.5rem;
 	font-weight: bold;
 	text-align: center;
 
@@ -174,5 +177,9 @@ export const StyledButton = styled.button`
 	&:hover {
 		transform: scale(1.05);
 		background-color: ${colors.dark_sea_green};
+	}
+
+	@media screen and (max-width: 555px) {
+		font-size: 1rem;
 	}
 `

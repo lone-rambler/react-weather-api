@@ -28,6 +28,26 @@ const Homepage = () => {
 			case '03d':
 			case '03n':
 				return icons[2]
+			case '04d':
+			case '04n':
+				return icons[3]
+			case '09d':
+			case '09n':
+				return icons[4]
+			case '10d':
+			case '10n':
+				return icons[5]
+			case '11d':
+			case '11n':
+				return icons[6]
+			case '13d':
+			case '13n':
+				return icons[7]
+			case '50d':
+			case '50n':
+				return icons[8]
+			default:
+				return ''
 		}
 	}
 
@@ -47,7 +67,7 @@ const Homepage = () => {
 					temp: data.main.temp,
 					feels_like: data.main.feels_like,
 					description: data.weather[0].description,
-					icon: data.weather[0].icon,
+					icon: betterIcon(data.weather[0].icon),
 					date: new Date(data.dt * 1000).toLocaleDateString('en-EN'),
 					pressure: data.main.pressure,
 				}
@@ -78,7 +98,7 @@ const Homepage = () => {
 							<li>Temperature: {weatherInfo.temp}</li>
 							<li>Feels like: {weatherInfo.feels_like}</li>
 							<li>
-								Description: {weatherInfo.description}{' '}
+								Description: {weatherInfo.description} {weatherInfo.icon}
 								{/* <img
 									width='25'
 									height='25'
